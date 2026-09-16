@@ -4,4 +4,4 @@ COPY . .
 
 RUN make
 
-ENTRYPOINT ["./bin/computer_circuits"]
+ENTRYPOINT ["./bin/main_program"]

@@ -8,7 +8,7 @@ OBJDIR  := obj
 BINDIR  := bin
 
 # Target executable name
-TARGET  := $(BINDIR)/computer_circuits
+TARGET  := $(BINDIR)/main_program
 
 # 1. Find all .c files recursively under SRCDIR
 SOURCES := $(shell find $(SRCDIR) -type f -name '*.c')
