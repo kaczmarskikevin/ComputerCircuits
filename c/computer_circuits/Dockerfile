@@ -4,4 +4,4 @@ COPY . .
 
 RUN make
 
-ENTRYPOINT ["./obj/computer_circuits"]
+ENTRYPOINT ["./bin/computer_circuits"]
