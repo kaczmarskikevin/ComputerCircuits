@@ -1,6 +1,8 @@
 int start_computer(void) {
     printf("Loaded %s-%s\n", __FILE__, __FUNCTION__);
 
+    start_system_chipset();
+
     return 0;
 }
 
