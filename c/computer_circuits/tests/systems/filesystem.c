@@ -1,5 +1,0 @@
-int start_filesystem(void) {
-    printf("Loaded %s\n", __FILE__);
-
-    return 0;
-}

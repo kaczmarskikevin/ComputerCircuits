@@ -1,37 +1,46 @@
-# Compiler settings
-CC      := gcc
-CFLAGS  := -Wall -Wextra -O2 -Iinclude
+CC     = gcc
+CFLAGS = -Wall -Wextra -std=gnu99 -Iinclude
 
 # Directories
-SRCDIR  := src
-OBJDIR  := obj
-BINDIR  := bin
+SRC_DIR = src
+TST_DIR = test
+OBJ_DIR = obj
+BIN_DIR = bin
 
-# Target executable name
-TARGET  := $(BINDIR)/main_program
+# Recursively find all .c files in src/
+SRC_C = $(shell find $(SRC_DIR) -type f -name '*.c')
+# Map source files to object files in obj/
+SRC_OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_C))
 
-# 1. Find all .c files recursively under SRCDIR
-SOURCES := $(shell find $(SRCDIR) -type f -name '*.c')
+# Find all test .c files in test/
+TST_C = $(shell find $(TST_DIR) -type f -name '*.c')
+# Map test files to executables in bin/
+TST_BINS = $(patsubst $(TST_DIR)/%.c, $(BIN_DIR)/%, $(TST_C))
 
-# 2. Generate object file paths inside OBJDIR corresponding to source files
-OBJECTS := $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SOURCES))
+.PHONY: all test clean
 
-# Default target
-all: $(TARGET)
+all: $(TST_BINS)
 
-# Link the executable
-$(TARGET): $(OBJECTS)
+# Compile tests, linking all core src object files (excluding any main() in src if applicable)
+$(BIN_DIR)/%: $(TST_DIR)/%.c $(SRC_OBJS) | $(BIN_DIR)
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $^ -o $@
 
-# Compile C source files to object files recursively
-# The mkdir command mirrors the source subdirectory tree structure under OBJDIR
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+# Pattern rule for recursive compilation of src/ files into obj/
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean build artifacts
-clean:
-	rm -rf $(OBJDIR) $(BINDIR)
+# Create directories if they do not exist
+$(OBJ_DIR) $(BIN_DIR):
+	mkdir -p $@
 
-.PHONY: all clean
+test: all
+	@echo "Running tests..."
+	@for t in $(TST_BINS); do \
+		echo "--> Executing $$t"; \
+		./$$t || exit 1; \
+	done
+
+clean:
+	rm -rf $(OBJ_DIR) $(BIN_DIR)
