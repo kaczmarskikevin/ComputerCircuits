@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo $(./start.sh c computer_circuits)
+./start.sh c computer_circuits
