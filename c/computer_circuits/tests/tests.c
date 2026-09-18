@@ -1,8 +1,5 @@
 #include <project.h>
 
-#define EXIT_SUCCESS 0
-#define EXIT_FAILURE -1
-
 // Track test passes and failures globally
 static int tests_run = 0;
 static int tests_failed = 0;
