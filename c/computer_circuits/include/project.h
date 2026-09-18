@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int start_computer(void);
 int start_monitor(void);
 int plug_in_monitor(void);

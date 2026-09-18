@@ -1,5 +1,4 @@
 #include <project.h>
-#include <stdio.h>
 
 int main(void) {
     printf("Loaded %s-%s\n", __FILE__, __FUNCTION__);
