@@ -12,3 +12,4 @@ int display_to_screen(void);
 int shutdown_computer(void);
 int read_reset_vector(void);
 int read_instruction(int);
+int start_system_chipset(void);
