@@ -4,4 +4,4 @@ COPY . .
 
 RUN make
 
-ENTRYPOINT ["./bin/main_program"]
+ENTRYPOINT ["./bin/main"]
