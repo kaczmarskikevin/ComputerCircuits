@@ -3,7 +3,7 @@ CFLAGS = -Wall -Wextra -std=gnu99 -Iinclude
 
 # Directories
 SRC_DIR = src
-TST_DIR = test
+TST_DIR = tests
 OBJ_DIR = obj
 BIN_DIR = bin
 

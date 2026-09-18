@@ -33,7 +33,7 @@ int test_division_by_zero(void) {
 
 // Main entry point executed by your Makefile
 int main(void) {
-    printf("=== STARTING CALCULATOR TESTS ===\n");
+    printf("=== STARTING TESTS ===\n");
 
     // Execute test cases
     RUN_TEST(test_addition_positive_numbers);
