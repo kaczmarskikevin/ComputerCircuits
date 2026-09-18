@@ -1,5 +1,8 @@
 #include <project.h>
 
+#define EXIT_SUCCESS 0
+#define EXIT_FAILURE -1
+
 // Track test passes and failures globally
 static int tests_run = 0;
 static int tests_failed = 0;
@@ -23,10 +26,9 @@ int test_addition_positive_numbers(void) {
 }
 
 // Test Case 2: Handled division error
-int test_division_by_zero(void) {
-    int result = 10 / 0;
-    // Assuming your code returns a sentinel value like -1 on error
-    return (result == -1); 
+int test_addition_positive_numbers_wrong(void) {
+    int result = 5 + 7;
+    return (result == 13);
 }
 
 // Main entry point executed by your Makefile
@@ -35,7 +37,7 @@ int main(void) {
 
     // Execute test cases
     RUN_TEST(test_addition_positive_numbers);
-    RUN_TEST(test_division_by_zero);
+    RUN_TEST(test_addition_positive_numbers_wrong);
 
     // Final summary report
     printf("\n=== TEST SUMMARY ===\n");
