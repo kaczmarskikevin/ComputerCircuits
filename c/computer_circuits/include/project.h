@@ -3,6 +3,7 @@
 #include <assert.h>
 
 int start_computer(void);
+int start_cpu(void);
 int start_monitor(void);
 int plug_in_monitor(void);
 int plug_in_keyboard(void);
