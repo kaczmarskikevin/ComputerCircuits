@@ -10,3 +10,5 @@ int plug_in_keyboard(void);
 int type_hello_world(void);
 int display_to_screen(void);
 int shutdown_computer(void);
+int read_reset_vector(void);
+int read_instruction(int);
