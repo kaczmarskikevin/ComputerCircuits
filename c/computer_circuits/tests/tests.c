@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <assert.h>
+#include <project.h>
 
 // Track test passes and failures globally
 static int tests_run = 0;

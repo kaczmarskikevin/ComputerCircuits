@@ -1,3 +1,5 @@
+#include <project.h>
+
 #define BIOS_ADDRESS 0
 
 int start_cpu(void) {

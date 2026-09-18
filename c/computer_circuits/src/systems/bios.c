@@ -1,3 +1,5 @@
+#include <project.h>
+
 int read_bios(void) {
     printf("Loaded %s-%s\n", __FILE__, __FUNCTION__);
 
