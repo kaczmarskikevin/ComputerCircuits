@@ -1,6 +1,5 @@
 #!/bin/bash
 
-docker build -t kaczmarskikevin/$1 ./$1/
 docker build -t kaczmarskikevin/$1-$2 ./$1/$2/
 
 LANG="$1"
