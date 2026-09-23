@@ -12,12 +12,12 @@
 #define COPPER_BOTTOM 5
 
 typedef struct {
-    copper_wire_t* face_north_neighbor;
-    copper_wire_t* face_south_neighbor;
-    copper_wire_t* face_east_neighbor;
-    copper_wire_t* face_west_neighbor;
-    copper_wire_t* face_top_neighbor;
-    copper_wire_t* face_bottom_neighbor;
+    copper_wire_neighbor_t* face_north_neighbor;
+    copper_wire_neighbor_t* face_south_neighbor;
+    copper_wire_neighbor_t* face_east_neighbor;
+    copper_wire_neighbor_t* face_west_neighbor;
+    copper_wire_neighbor_t* face_top_neighbor;
+    copper_wire_neighbor_t* face_bottom_neighbor;
 
     // We will use positive and negative voltage to determine 
     //  electron flow.
@@ -28,6 +28,10 @@ typedef struct {
     int face_top_voltage;
     int face_bottom_voltage;
 } copper_wire_t;
+
+typedef struct {
+    copper_wire_t* copper_wire;
+} copper_wire_neighbor_t;
 
 int start_computer(void);
 int start_cpu(void);
