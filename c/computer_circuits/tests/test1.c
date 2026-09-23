@@ -19,7 +19,7 @@ static int tests_failed = 0;
 // Test Case for Copper Wire
 int test_copper_wire(void) {
     int result = 5 + 7;
-    return (result == 12);
+    return (result == 11);
 }
 
 int main(void) {
