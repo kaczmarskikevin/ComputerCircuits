@@ -7,7 +7,7 @@ int start_cpu(void) {
 
     read_reset_vector();
 
-    return 0;
+    return EXIT_SUCCESS;;
 }
 
 int read_reset_vector(void) {
@@ -15,7 +15,7 @@ int read_reset_vector(void) {
 
     read_instruction(BIOS_ADDRESS);
 
-    return 0;
+    return EXIT_SUCCESS;;
 }
 
 int read_instruction(int address) {
@@ -23,5 +23,5 @@ int read_instruction(int address) {
 
     printf("Successfully read instruction at %d\n", address);
 
-    return 0;
+    return EXIT_SUCCESS;;
 }

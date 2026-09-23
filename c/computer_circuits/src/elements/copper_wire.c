@@ -1,1 +1,31 @@
 #include <project.h>
+
+copper_wire_t* connect_face(copper_wire_t* this_wire, copper_wire_t* neighbor_wire, int face) {
+    printf("Loaded %s-%s\n", __FILE__, __FUNCTION__);
+
+    switch (face) {
+        case COPPER_NORTH:
+            printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_wire, this_wire);
+            break;
+        case COPPER_SOUTH:
+            printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_wire, this_wire);
+            break;
+        case COPPER_EAST:
+            printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_wire, this_wire);
+            break;
+        case COPPER_WEST:
+            printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_wire, this_wire);
+            break;
+        case COPPER_TOP:
+            printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_wire, this_wire);
+            break;
+        case COPPER_BOTTOM:
+            printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_wire, this_wire);
+            break;
+        default:
+            fprintf(stderr, "Error: Could not connect the wires. Exiting Program\n");
+            exit(EXIT_FAILURE);
+    }
+
+    return EXIT_SUCCESS;
+}

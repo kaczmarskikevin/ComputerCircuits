@@ -11,5 +11,5 @@ int main(void) {
     display_to_screen();
     shutdown_computer();
 
-    return 0;
+    return EXIT_SUCCESS;;
 }

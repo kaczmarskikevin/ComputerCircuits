@@ -5,5 +5,5 @@ int start_system_chipset(void) {
 
     start_cpu();
 
-    return 0;
+    return EXIT_SUCCESS;;
 }

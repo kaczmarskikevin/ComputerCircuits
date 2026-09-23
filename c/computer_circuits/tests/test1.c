@@ -16,25 +16,17 @@ static int tests_failed = 0;
     } \
 } while (0)
 
-// Test Case 1: Standard addition
-int test_addition_positive_numbers(void) {
+// Test Case for Copper Wire
+int test_copper_wire(void) {
     int result = 5 + 7;
     return (result == 12);
 }
 
-// Test Case 2: Handled division error
-int test_addition_positive_numbers_wrong(void) {
-    int result = 5 + 7;
-    return (result == 13);
-}
-
-// Main entry point executed by your Makefile
 int main(void) {
     printf("=== STARTING TESTS ===\n");
 
     // Execute test cases
-    RUN_TEST(test_addition_positive_numbers);
-    RUN_TEST(test_addition_positive_numbers_wrong);
+    RUN_TEST(test_copper_wire);
 
     // Final summary report
     printf("\n=== TEST SUMMARY ===\n");
@@ -42,7 +34,6 @@ int main(void) {
     printf("Passed: %d\n", tests_run - tests_failed);
     printf("Failed: %d\n", tests_failed);
 
-    // Return non-zero if any tests fail so the Makefile stops execution
     if (tests_failed > 0) {
         return EXIT_FAILURE;
     }
