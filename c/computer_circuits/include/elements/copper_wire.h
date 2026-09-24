@@ -25,4 +25,4 @@ struct copper_wire_t {
     int face_bottom_voltage;
 };
 
-struct copper_wire_t* connect_face(copper_wire_t* this_wire, copper_wire_t* neighbor_wire, int face);
+struct copper_wire_t* connect_face(struct copper_wire_t* this_wire, struct copper_wire_t* neighbor_wire, int face);
