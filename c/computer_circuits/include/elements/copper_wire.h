@@ -21,4 +21,4 @@ typedef struct copper_wire {
     int face_west_voltage;
     int face_top_voltage;
     int face_bottom_voltage;
-} struct copper_wire_t;
+} copper_wire_t;
