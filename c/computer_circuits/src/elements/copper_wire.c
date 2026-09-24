@@ -8,19 +8,19 @@ copper_wire_t* connect_face(copper_wire_t* this_wire, copper_wire_t* neighbor_wi
             printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_wire, this_wire);
             break;
         case COPPER_SOUTH:
-            printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_wire, this_wire);
+            printf("Copper wire %p has been connected to copper wire %p on the south face\n", neighbor_wire, this_wire);
             break;
         case COPPER_EAST:
-            printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_wire, this_wire);
+            printf("Copper wire %p has been connected to copper wire %p on the east face\n", neighbor_wire, this_wire);
             break;
         case COPPER_WEST:
-            printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_wire, this_wire);
+            printf("Copper wire %p has been connected to copper wire %p on the west face\n", neighbor_wire, this_wire);
             break;
         case COPPER_TOP:
-            printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_wire, this_wire);
+            printf("Copper wire %p has been connected to copper wire %p on the top face\n", neighbor_wire, this_wire);
             break;
         case COPPER_BOTTOM:
-            printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_wire, this_wire);
+            printf("Copper wire %p has been connected to copper wire %p on the bottom face\n", neighbor_wire, this_wire);
             break;
         default:
             fprintf(stderr, "Error: Could not connect the wires. Exiting Program\n");
