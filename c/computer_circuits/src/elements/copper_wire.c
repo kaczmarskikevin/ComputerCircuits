@@ -1,6 +1,6 @@
 #include <project.h>
 
-copper_wire_t* connect_face(copper_wire_t* this_wire, copper_wire_t* neighbor_wire, int face) {
+int connect_face(copper_wire_t* this_wire, copper_wire_t* neighbor_wire, int face) {
     printf("Loaded %s-%s\n", __FILE__, __FUNCTION__);
 
     switch (face) {
