@@ -24,7 +24,7 @@ copper_wire_t* connect_face(copper_wire_t* this_wire, copper_wire_t* neighbor_wi
             break;
         default:
             fprintf(stderr, "Error: Could not connect the wires. Exiting Program\n");
-            exit(EXIT_FAILURE);
+            return(EXIT_FAILURE);
     }
 
     return EXIT_SUCCESS;
