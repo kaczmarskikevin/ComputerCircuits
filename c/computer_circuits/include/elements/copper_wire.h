@@ -1,4 +1,4 @@
-#include <project.h>
+#include <shared/libraries.h>
 
 #define COPPER_NORTH  0
 #define COPPER_SOUTH  1
@@ -24,5 +24,3 @@ typedef struct copper_wire {
     int face_top_voltage;
     int face_bottom_voltage;
 } copper_wire_t;
-
-copper_wire_t* connect_face(copper_wire_t* this_wire, copper_wire_t* neighbor_wire, int face);
