@@ -18,9 +18,19 @@ static int tests_failed = 0;
 
 // Test Case for Copper Wire
 int test_copper_wire(void) {
-    copper_wire_t* wire1;
-    copper_wire_t* wire2;
-    return connect_face(wire1,wire2,COPPER_NORTH);
+    copper_wire_t* main_wire;
+    copper_wire_t* north_wire;
+    copper_wire_t* south_wire;
+    copper_wire_t* east_wire;
+    copper_wire_t* west_wire;
+    copper_wire_t* top_wire;
+    copper_wire_t* bottom_wire;
+    return connect_face(main_wire,north_wire,COPPER_NORTH) ||
+           connect_face(main_wire,south_wire,COPPER_SOUTH) ||
+           connect_face(main_wire,east_wire,COPPER_EAST) ||
+           connect_face(main_wire,west_wire,COPPER_WEST) ||
+           connect_face(main_wire,top_wire,COPPER_TOP) ||
+           connect_face(main_wire,bottom_wire,COPPER_BOTTOM);
 }
 
 int main(void) {
