@@ -8,7 +8,7 @@ static int tests_failed = 0;
 #define RUN_TEST(test_func) do { \
     printf("Running %s... ", #test_func); \
     tests_run++; \
-    if (test_func()) { \
+    if (test_func() == EXIT_SUCCESS) { \
         printf("PASSED\n"); \
     } else { \
         printf("FAILED\n"); \
