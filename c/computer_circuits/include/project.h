@@ -1,5 +1,4 @@
 #include <shared/libraries.h>
-#include <elements/copper_wire.h>
 
 int start_computer(void);
 int start_cpu(void);
