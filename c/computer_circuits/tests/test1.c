@@ -1,4 +1,5 @@
 #include <project.h>
+#include <copper_wire.h>
 
 // Track test passes and failures globally
 static int tests_run = 0;
