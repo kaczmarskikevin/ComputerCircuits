@@ -8,12 +8,12 @@
 #define COPPER_BOTTOM 5
 
 struct copper_wire_t {
-    struct copper_wire_t* face_north_neighbor;
-    struct copper_wire_t* face_south_neighbor;
-    struct copper_wire_t* face_east_neighbor;
-    struct copper_wire_t* face_west_neighbor;
-    struct copper_wire_t* face_top_neighbor;
-    struct copper_wire_t* face_bottom_neighbor;
+    (struct copper_wire_t*) face_north_neighbor;
+    (struct copper_wire_t*) face_south_neighbor;
+    (struct copper_wire_t*) face_east_neighbor;
+    (struct copper_wire_t*) face_west_neighbor;
+    (struct copper_wire_t*) face_top_neighbor;
+    (struct copper_wire_t*) face_bottom_neighbor;
 
     // We will use positive and negative voltage to determine 
     //  electron flow.
@@ -25,4 +25,4 @@ struct copper_wire_t {
     int face_bottom_voltage;
 };
 
-struct copper_wire_t* connect_face(struct copper_wire_t* this_wire, struct copper_wire_t* neighbor_wire, int face);
+(struct copper_wire_t*) connect_face((struct copper_wire_t*) this_wire, (struct copper_wire_t*) neighbor_wire, int face);
