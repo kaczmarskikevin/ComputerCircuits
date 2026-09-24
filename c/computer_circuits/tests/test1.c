@@ -18,8 +18,9 @@ static int tests_failed = 0;
 
 // Test Case for Copper Wire
 int test_copper_wire(void) {
-    int result = 5 + 7;
-    return (result == 11);
+    copper_wire_t* wire1;
+    copper_wire_t* wire2;
+    return connect_face(wire1,wire2,COPPER_NORTH);
 }
 
 int main(void) {
