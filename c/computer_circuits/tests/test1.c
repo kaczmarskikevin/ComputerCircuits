@@ -16,7 +16,7 @@ static int tests_failed = 0;
     } \
 } while (0)
 
-// Test Case for Copper Wire
+// Connect all wires to all faces.
 int test_copper_wire(void) {
     copper_wire_t* main_wire;
     copper_wire_t* north_wire;
@@ -33,11 +33,19 @@ int test_copper_wire(void) {
            connect_face(main_wire,bottom_wire,COPPER_BOTTOM);
 }
 
+//Connect the north wire to a face that doesn't exist.
+int test_copper_wire_error(void) {
+    copper_wire_t* main_wire;
+    copper_wire_t* north_wire;
+    return !(connect_face(main_wire,north_wire,99));
+}
+
 int main(void) {
     printf("=== STARTING TESTS ===\n");
 
     // Execute test cases
     RUN_TEST(test_copper_wire);
+    RUN_TEST(test_copper_wire_error);
 
     // Final summary report
     printf("\n=== TEST SUMMARY ===\n");
