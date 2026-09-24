@@ -1,5 +1,3 @@
-#include <shared/libraries.h>
-
 #define COPPER_NORTH  0
 #define COPPER_SOUTH  1
 #define COPPER_EAST   2
