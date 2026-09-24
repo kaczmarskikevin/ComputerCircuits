@@ -9,4 +9,4 @@ shift 2
 
 mkdir -p /tmp/kkaczmarski-container
 
-docker run --cap-add=SYS_PTRACE -v /tmp/kkaczmarski-container:/tmp kaczmarskikevin/$LANG-$PROG $@ 2>&1
+docker run --cap-add=SYS_PTRACE -v /tmp/kkaczmarski-container:/tmp kaczmarskikevin/$LANG-$PROG $@ > stdout.log 2> stderr.log
