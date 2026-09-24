@@ -22,17 +22,17 @@ static int tests_failed = 0;
 // Connect all wires to all faces.
 int test_copper_wire(void) {
 
-    struct copper_wire_t main_wire_obj = {0}; 
-    struct copper_wire_t north_obj = {0}, south_obj = {0}, east_obj = {0};
-    struct copper_wire_t west_obj = {0}, top_obj = {0}, bottom_obj = {0};
+    copper_wire_t main_wire_obj = {0}; 
+    copper_wire_t north_obj = {0}, south_obj = {0}, east_obj = {0};
+    copper_wire_t west_obj = {0}, top_obj = {0}, bottom_obj = {0};
 
-    struct copper_wire_t* main_wire   = &main_wire_obj;
-    struct copper_wire_t* north_wire  = &north_obj;
-    struct copper_wire_t* south_wire  = &south_obj;
-    struct copper_wire_t* east_wire   = &east_obj;
-    struct copper_wire_t* west_wire   = &west_obj;
-    struct copper_wire_t* top_wire    = &top_obj;
-    struct copper_wire_t* bottom_wire = &bottom_obj;
+    copper_wire_t* main_wire   = &main_wire_obj;
+    copper_wire_t* north_wire  = &north_obj;
+    copper_wire_t* south_wire  = &south_obj;
+    copper_wire_t* east_wire   = &east_obj;
+    copper_wire_t* west_wire   = &west_obj;
+    copper_wire_t* top_wire    = &top_obj;
+    copper_wire_t* bottom_wire = &bottom_obj;
 
     int result = 0;
 
@@ -49,11 +49,11 @@ int test_copper_wire(void) {
 //Connect the north wire to a face that doesn't exist.
 int test_copper_wire_error(void) {
 
-    struct copper_wire_t main_wire_obj = {0}; 
-    struct copper_wire_t north_obj = {0};
+    copper_wire_t main_wire_obj = {0}; 
+    copper_wire_t north_obj = {0};
 
-    struct copper_wire_t* main_wire   = &main_wire_obj;
-    struct copper_wire_t* north_wire  = &north_obj;
+    copper_wire_t* main_wire   = &main_wire_obj;
+    copper_wire_t* north_wire  = &north_obj;
 
     int result = 0;
 

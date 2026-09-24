@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <elements/copper_wire.h>
 
-int connect_face(struct copper_wire_t* this_wire, struct copper_wire_t* neighbor_wire, int face) {
+int connect_face(copper_wire_t* this_wire, copper_wire_t* neighbor_wire, int face) {
     printf("Loaded %s-%s\n", __FILE__, __FUNCTION__);
 
     switch (face) {
