@@ -1,0 +1,1 @@
+int type_hello_world(void);

@@ -1,4 +1,8 @@
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <systems/computer.h>
+#include <systems/monitor.h>
+#include <systems/keyboard.h>
 
 int main(void) {
     printf("Loaded %s-%s\n", __FILE__, __FUNCTION__);
@@ -11,5 +15,5 @@ int main(void) {
     display_to_screen();
     shutdown_computer();
 
-    return EXIT_SUCCESS;;
+    return EXIT_SUCCESS;
 }
