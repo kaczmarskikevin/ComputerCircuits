@@ -22,3 +22,5 @@ typedef struct copper_wire {
     int face_top_voltage;
     int face_bottom_voltage;
 } copper_wire_t;
+
+int connect_face(copper_wire_t* this_wire, copper_wire_t* neighbor_wire, int face);
