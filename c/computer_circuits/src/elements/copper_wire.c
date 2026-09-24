@@ -23,7 +23,7 @@ copper_wire_t* connect_face(copper_wire_t* this_wire, copper_wire_t* neighbor_wi
             printf("Copper wire %p has been connected to copper wire %p on the bottom face\n", neighbor_wire, this_wire);
             break;
         default:
-            fprintf(stderr, "Error: Could not connect the wires. Exiting Program\n");
+            printf("Error: Could not connect the wires.\n");
             return EXIT_FAILURE;
     }
 
