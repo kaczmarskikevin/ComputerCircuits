@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker build -t kaczmarskikevin/$1-$2 ./$1/$2/
+docker build --progress=plain -t kaczmarskikevin/$1-$2 ./$1/$2/
 
 LANG="$1"
 PROG="$2"
