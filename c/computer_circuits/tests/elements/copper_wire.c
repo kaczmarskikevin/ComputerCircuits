@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <elements/copper_wire.h>
+#include <tests/elements/copper_wire.h>
 
 // Connect all wires to all faces.
 int copper_wire_connections(void) {

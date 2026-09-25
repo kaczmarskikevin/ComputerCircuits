@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <elements/power.h>
 #include <tests/elements/power.h>
 
 int draw_power(void){
