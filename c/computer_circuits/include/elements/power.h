@@ -4,6 +4,6 @@ typedef struct {
     long long femtovolts; 
 } power_supply_t;
 
-int draw_power(void);
+int draw_power(long long femtoamperes);
 
-int release_power(void);
+int release_power(long long femtoamperes);
