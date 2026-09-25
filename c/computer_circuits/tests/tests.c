@@ -34,6 +34,12 @@ int main(void) {
     RUN_TEST(copper_wire_power_release);
     RUN_TEST(copper_wire_power_release_error);
 
+    //power.c
+    RUN_TEST(draw_power);
+    RUN_TEST(draw_too_much_power);
+    RUN_TEST(release_power);
+    RUN_TEST(release_too_much_power);
+
     // Final summary report
     printf("\n=== TEST SUMMARY ===\n");
     printf("Total Tests Run: %d\n", tests_run);
