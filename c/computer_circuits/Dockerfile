@@ -8,7 +8,7 @@ RUN apt-get update && \
 COPY . .
 
 RUN mkdir test_bin bin && \
-    gcc $(find src -name "*.c" -not -name "main.c") tests/tests.c -I./include/tests -Wall -Wextra -o test_bin/tests && \
+    gcc $(find src -name "*.c" -not -name "main.c") tests/tests.c -I./include -Wall -Wextra -o test_bin/tests && \
     gcc $(find src -name "*.c") -I./include -Wall -Wextra -o bin/main_program
     
 
