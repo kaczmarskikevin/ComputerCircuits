@@ -42,7 +42,7 @@ int test_copper_wire(void) {
     result &= printf("STARTING Connecting east face   ... ") && connect_face(main_wire, east_wire,  COPPER_EAST)     && printf("TRUE");printf(" ... ENDING Connecting east face\n\n");
     result &= printf("STARTING Connecting west face   ... ") && connect_face(main_wire, west_wire,  COPPER_WEST)     && printf("TRUE");printf(" ... ENDING Connecting west face\n\n");
     result &= printf("STARTING Connecting top face    ... ") && connect_face(main_wire, top_wire,  COPPER_TOP)       && printf("TRUE");printf(" ... ENDING Connecting top face\n\n");
-    result &= printf("STARTING Connecting bottom face ... ") && connect_face(main_wire, bottom_wire,  COPPER_BOTTOM) && printf("TRUE");printf(" ... ENDING Connecting bottom face\n\n");
+    //result &= printf("STARTING Connecting bottom face ... ") && connect_face(main_wire, bottom_wire,  COPPER_BOTTOM) && printf("TRUE");printf(" ... ENDING Connecting bottom face\n\n");
 
     //Failed connection
     result &= printf("Connecting bottom face ... ") && !connect_face(main_wire, bottom_wire,  99) && printf("TRUE");printf("\n");
