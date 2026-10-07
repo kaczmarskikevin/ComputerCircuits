@@ -5,6 +5,15 @@
 #define COPPER_TOP    4
 #define COPPER_BOTTOM 5
 
+#define AWG 28
+#define SAFEAMPS 1
+#define BURNAMPS 10
+#define WIREDIAMETER 321 //PICOMETERS
+
+//Power Loss = Current Squared * Resistance
+// P = I^2 * R
+
+
 typedef struct copper_wire {
     struct copper_wire* face_north_neighbor;
     struct copper_wire* face_south_neighbor;
@@ -13,14 +22,11 @@ typedef struct copper_wire {
     struct copper_wire* face_top_neighbor;
     struct copper_wire* face_bottom_neighbor;
 
-    // We will use positive and negative voltage to determine 
-    //  electron flow.
-    int face_north_voltage;
-    int face_south_voltage;
-    int face_east_voltage;
-    int face_west_voltage;
-    int face_top_voltage;
-    int face_bottom_voltage;
+    long long femtoamperes;
 } copper_wire_t;
 
 int connect_face(copper_wire_t* this_wire, copper_wire_t* neighbor_wire, int face);
+
+int update_current(copper_wire_t* this_wire, long long femtoamperes);
+
+int inspect_wire(copper_wire_t* this_wire);
