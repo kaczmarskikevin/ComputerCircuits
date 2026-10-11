@@ -37,17 +37,17 @@ int test_copper_wire(void) {
     int result = 1;
 
     //Success Tests
-    result &= printf("STARTING Connecting north face  ... ") && connect_face(main_wire, north_wire,  NORTH_FACE)   && printf("TRUE");printf(" ... ENDING Connecting north face\n\n");
-    result &= printf("STARTING Connecting south face  ... ") && connect_face(main_wire, south_wire,  SOUTH_FACE)   && printf("TRUE");printf(" ... ENDING Connecting south face\n\n");
-    result &= printf("STARTING Connecting east face   ... ") && connect_face(main_wire, east_wire,  EAST_FACE)     && printf("TRUE");printf(" ... ENDING Connecting east face\n\n");
-    result &= printf("STARTING Connecting west face   ... ") && connect_face(main_wire, west_wire,  WEST_FACE)     && printf("TRUE");printf(" ... ENDING Connecting west face\n\n");
-    result &= printf("STARTING Connecting top face    ... ") && connect_face(main_wire, top_wire,  TOP_FACE)       && printf("TRUE");printf(" ... ENDING Connecting top face\n\n");
-    result &= printf("STARTING Connecting bottom face ... ") && connect_face(main_wire, bottom_wire,  BOTTOM_FACE) && printf("TRUE");printf(" ... ENDING Connecting bottom face\n\n");
+    result &= printf("STARTING Connecting north face  ... ") && connect_neighbor(main_wire, north_wire,  NORTH)   && printf("TRUE");printf(" ... ENDING Connecting north face\n\n");
+    result &= printf("STARTING Connecting south face  ... ") && connect_neighbor(main_wire, south_wire,  SOUTH)   && printf("TRUE");printf(" ... ENDING Connecting south face\n\n");
+    result &= printf("STARTING Connecting east face   ... ") && connect_neighbor(main_wire, east_wire,  EAST)     && printf("TRUE");printf(" ... ENDING Connecting east face\n\n");
+    result &= printf("STARTING Connecting west face   ... ") && connect_neighbor(main_wire, west_wire,  WEST)     && printf("TRUE");printf(" ... ENDING Connecting west face\n\n");
+    result &= printf("STARTING Connecting top face    ... ") && connect_neighbor(main_wire, top_wire,  TOP)       && printf("TRUE");printf(" ... ENDING Connecting top face\n\n");
+    result &= printf("STARTING Connecting bottom face ... ") && connect_neighbor(main_wire, bottom_wire,  BOTTOM) && printf("TRUE");printf(" ... ENDING Connecting bottom face\n\n");
 
     //Failed connection
-    result &= printf("Connecting bottom face ... ") && !connect_face(main_wire, bottom_wire,  99) && printf("TRUE");printf("\n");
+    result &= printf("Connecting bottom face ... ") && !connect_neighbor(main_wire, bottom_wire,  99) && printf("TRUE");printf("\n");
 
-    inspect_wire(main_wire);
+    inspect_element(main_wire);
 
     return result; 
 }
