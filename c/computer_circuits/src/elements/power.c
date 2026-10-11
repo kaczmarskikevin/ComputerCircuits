@@ -14,7 +14,7 @@ int power_on() {
     power_supply = malloc(sizeof(power_supply_t));
     power_supply->femtowatt_rating = 1000000000000000000;
     power_supply->femtowatts_used = 0LL;
-    power_supply->volts = 120;
+    power_supply->microvolts = 120000000;
 
     return 1;
 }
@@ -42,7 +42,7 @@ long long current_usage() {
     return power_supply->femtowatts_used;
 }
 
-int draw_power(long long femtoamperes) {
+int draw_power(long long nanoamperes) {
 
     if( power_supply == NULL ) {
         printf("Error: PC is off.\n");
@@ -50,7 +50,7 @@ int draw_power(long long femtoamperes) {
     }
 
     if( power_supply->femtowatts_used < power_supply->femtowatt_rating ){
-        power_supply->femtowatts_used = power_supply->femtowatts_used + ( power_supply->volts * femtoamperes );
+        power_supply->femtowatts_used = power_supply->femtowatts_used + ( power_supply->microvolts * nanoamperes );
         printf("Femtowatts are %lld\n",power_supply->femtowatts_used);
 
         if(power_supply->femtowatts_used > power_supply->femtowatt_rating) { 
@@ -64,7 +64,7 @@ int draw_power(long long femtoamperes) {
 /*
 * We want to be able to release power, but the power should not become negative.
 */
-int release_power(long long femtoamperes) {
+int release_power(long long nanoamperes) {
 
     if( power_supply == NULL ) {
         printf("Error: PC is off.\n");
@@ -72,7 +72,7 @@ int release_power(long long femtoamperes) {
     }
 
     if( power_supply->femtowatts_used >= 0 ){
-        power_supply->femtowatts_used = power_supply->femtowatts_used - ( power_supply->volts * femtoamperes );
+        power_supply->femtowatts_used = power_supply->femtowatts_used - ( power_supply->microvolts * nanoamperes );
 
         if( power_supply->femtowatts_used < 0 ){
             printf("Error: Femtowatts used, %lld, cannot be less than 0.\n", power_supply->femtowatts_used);

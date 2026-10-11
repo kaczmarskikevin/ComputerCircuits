@@ -1,42 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <elements/copper_wire.h>
+#include <elements/element.h>
 
 #define ANSI_COLOR_GREEN   "\x1b[32m"
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
-int connect_face(copper_wire_t* this_wire, copper_wire_t* neighbor_wire, int face) {
+int connect_face(element_t* this_element, element_t* neighbor_element, int face) {
     switch (face) {
-        case COPPER_NORTH:
-            this_wire->face_north_neighbor     = neighbor_wire;
-            neighbor_wire->face_south_neighbor = this_wire;
-            printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_wire, this_wire);
+        case NORTH_FACE:
+            this_element->face_north_neighbor     = neighbor_element;
+            neighbor_element->face_south_neighbor = this_element;
+            printf("Copper wire %p has been connected to copper wire %p on the north face\n", neighbor_element, this_element);
             break;
-        case COPPER_SOUTH:
-            this_wire->face_south_neighbor     = neighbor_wire;
-            neighbor_wire->face_north_neighbor = this_wire;
-            printf("Copper wire %p has been connected to copper wire %p on the south face\n", neighbor_wire, this_wire);
+        case SOUTH_FACE:
+            this_element->face_south_neighbor     = neighbor_element;
+            neighbor_element->face_north_neighbor = this_element;
+            printf("Copper wire %p has been connected to copper wire %p on the south face\n", neighbor_element, this_element);
             break;
-        case COPPER_EAST:
-            this_wire->face_east_neighbor     = neighbor_wire;
-            neighbor_wire->face_west_neighbor = this_wire;
-            printf("Copper wire %p has been connected to copper wire %p on the east face\n", neighbor_wire, this_wire);
+        case EAST_FACE:
+            this_element->face_east_neighbor     = neighbor_element;
+            neighbor_element->face_west_neighbor = this_element;
+            printf("Copper wire %p has been connected to copper wire %p on the east face\n", neighbor_element, this_element);
             break;
-        case COPPER_WEST:
-            this_wire->face_west_neighbor     = neighbor_wire;
-            neighbor_wire->face_east_neighbor = this_wire;
-            printf("Copper wire %p has been connected to copper wire %p on the west face\n", neighbor_wire, this_wire);
+        case WEST_FACE:
+            this_element->face_west_neighbor     = neighbor_element;
+            neighbor_element->face_east_neighbor = this_element;
+            printf("Copper wire %p has been connected to copper wire %p on the west face\n", neighbor_element, this_element);
             break;
-        case COPPER_TOP:
-            this_wire->face_top_neighbor     = neighbor_wire;
-            neighbor_wire->face_bottom_neighbor = this_wire;
-            printf("Copper wire %p has been connected to copper wire %p on the top face\n", neighbor_wire, this_wire);
+        case TOP_FACE:
+            this_element->face_top_neighbor     = neighbor_element;
+            neighbor_element->face_bottom_neighbor = this_element;
+            printf("Copper wire %p has been connected to copper wire %p on the top face\n", neighbor_element, this_element);
             break;
-        case COPPER_BOTTOM:
-            this_wire->face_bottom_neighbor     = neighbor_wire;
-            neighbor_wire->face_top_neighbor = this_wire;
-            printf("Copper wire %p has been connected to copper wire %p on the bottom face\n", neighbor_wire, this_wire);
+        case BOTTOM_FACE:
+            this_element->face_bottom_neighbor     = neighbor_element;
+            neighbor_element->face_top_neighbor = this_element;
+            printf("Copper wire %p has been connected to copper wire %p on the bottom face\n", neighbor_element, this_element);
             break;
         default:
             printf("Error: Could not connect the wires.\n");
@@ -46,50 +46,50 @@ int connect_face(copper_wire_t* this_wire, copper_wire_t* neighbor_wire, int fac
     return 1;
 }
 
-int update_voltage(copper_wire_t* this_wire){
+int update_voltage(element_t* this_element){
 
-    if( this_wire->face_north_neighbor != NULL ) {
-        this_wire->femtoamperes = (this_wire->femtoamperes < this_wire->face_north_neighbor->femtoamperes) ? this_wire->face_north_neighbor->femtoamperes : this_wire->femtoamperes;
+    if( this_element->face_north_neighbor != NULL ) {
+        this_element->nanoamperes = (this_element->nanoamperes < this_element->face_north_neighbor->nanoamperes) ? this_element->face_north_neighbor->nanoamperes : this_element->nanoamperes;
     }
 
-    if( this_wire->face_south_neighbor != NULL ) {
-        this_wire->femtoamperes = (this_wire->femtoamperes < this_wire->face_south_neighbor->femtoamperes) ? this_wire->face_south_neighbor->femtoamperes : this_wire->femtoamperes;
+    if( this_element->face_south_neighbor != NULL ) {
+        this_element->nanoamperes = (this_element->nanoamperes < this_element->face_south_neighbor->nanoamperes) ? this_element->face_south_neighbor->nanoamperes : this_element->nanoamperes;
     }
 
-    if( this_wire->face_east_neighbor != NULL ) {
-        this_wire->femtoamperes = (this_wire->femtoamperes < this_wire->face_east_neighbor->femtoamperes) ? this_wire->face_east_neighbor->femtoamperes : this_wire->femtoamperes;
+    if( this_element->face_east_neighbor != NULL ) {
+        this_element->nanoamperes = (this_element->nanoamperes < this_element->face_east_neighbor->nanoamperes) ? this_element->face_east_neighbor->nanoamperes : this_element->nanoamperes;
     }
 
-    if( this_wire->face_west_neighbor != NULL ) {
-        this_wire->femtoamperes = (this_wire->femtoamperes < this_wire->face_west_neighbor->femtoamperes) ? this_wire->face_west_neighbor->femtoamperes : this_wire->femtoamperes;
+    if( this_element->face_west_neighbor != NULL ) {
+        this_element->nanoamperes = (this_element->nanoamperes < this_element->face_west_neighbor->nanoamperes) ? this_element->face_west_neighbor->nanoamperes : this_element->nanoamperes;
     }
 
-    if( this_wire->face_top_neighbor != NULL ) {
-        this_wire->femtoamperes = (this_wire->femtoamperes < this_wire->face_top_neighbor->femtoamperes) ? this_wire->face_top_neighbor->femtoamperes : this_wire->femtoamperes;
+    if( this_element->face_top_neighbor != NULL ) {
+        this_element->nanoamperes = (this_element->nanoamperes < this_element->face_top_neighbor->nanoamperes) ? this_element->face_top_neighbor->nanoamperes : this_element->nanoamperes;
     }
 
-    if( this_wire->face_bottom_neighbor != NULL ) {
-        this_wire->femtoamperes = (this_wire->femtoamperes < this_wire->face_bottom_neighbor->femtoamperes) ? this_wire->face_bottom_neighbor->femtoamperes : this_wire->femtoamperes;
+    if( this_element->face_bottom_neighbor != NULL ) {
+        this_element->nanoamperes = (this_element->nanoamperes < this_element->face_bottom_neighbor->nanoamperes) ? this_element->face_bottom_neighbor->nanoamperes : this_element->nanoamperes;
     }
 
     return 1;
 }
 
-int inspect_wire(copper_wire_t* this_wire){
+int inspect_wire(element_t* this_element){
 
-    copper_wire_t* north_neighbor = (this_wire->face_north_neighbor) ? this_wire->face_north_neighbor: NULL;
-    copper_wire_t* south_neighbor = (this_wire->face_south_neighbor) ? this_wire->face_south_neighbor: NULL;
-    copper_wire_t* east_neighbor = (this_wire->face_east_neighbor) ? this_wire->face_east_neighbor: NULL;
-    copper_wire_t* west_neighbor = (this_wire->face_west_neighbor) ? this_wire->face_west_neighbor: NULL;
-    copper_wire_t* top_neighbor = (this_wire->face_top_neighbor) ? this_wire->face_top_neighbor: NULL;
-    copper_wire_t* bottom_neighbor = (this_wire->face_bottom_neighbor) ? this_wire->face_bottom_neighbor: NULL;
+    element_t* north_neighbor = (this_element->face_north_neighbor) ? this_element->face_north_neighbor: NULL;
+    element_t* south_neighbor = (this_element->face_south_neighbor) ? this_element->face_south_neighbor: NULL;
+    element_t* east_neighbor = (this_element->face_east_neighbor) ? this_element->face_east_neighbor: NULL;
+    element_t* west_neighbor = (this_element->face_west_neighbor) ? this_element->face_west_neighbor: NULL;
+    element_t* top_neighbor = (this_element->face_top_neighbor) ? this_element->face_top_neighbor: NULL;
+    element_t* bottom_neighbor = (this_element->face_bottom_neighbor) ? this_element->face_bottom_neighbor: NULL;
 
-    copper_wire_t* north_neighbor_south_neighbor = (north_neighbor) ? north_neighbor->face_south_neighbor : NULL;
-    copper_wire_t* south_neighbor_north_neighbor = (south_neighbor) ? south_neighbor->face_north_neighbor : NULL;
-    copper_wire_t* east_neighbor_west_neighbor = (east_neighbor) ? east_neighbor->face_west_neighbor : NULL;
-    copper_wire_t* west_neighbor_east_neighbor = (west_neighbor) ? west_neighbor->face_east_neighbor : NULL;
-    copper_wire_t* top_neighbor_bottom_neighbor = (top_neighbor) ? top_neighbor->face_bottom_neighbor : NULL;
-    copper_wire_t* bottom_neighbor_top_neighbor = (bottom_neighbor) ? bottom_neighbor->face_top_neighbor : NULL;
+    element_t* north_neighbor_south_neighbor = (north_neighbor) ? north_neighbor->face_south_neighbor : NULL;
+    element_t* south_neighbor_north_neighbor = (south_neighbor) ? south_neighbor->face_north_neighbor : NULL;
+    element_t* east_neighbor_west_neighbor = (east_neighbor) ? east_neighbor->face_west_neighbor : NULL;
+    element_t* west_neighbor_east_neighbor = (west_neighbor) ? west_neighbor->face_east_neighbor : NULL;
+    element_t* top_neighbor_bottom_neighbor = (top_neighbor) ? top_neighbor->face_bottom_neighbor : NULL;
+    element_t* bottom_neighbor_top_neighbor = (bottom_neighbor) ? bottom_neighbor->face_top_neighbor : NULL;
 
     const char *north_null_color  = (north_neighbor) 
                                 ? ANSI_COLOR_GREEN : ANSI_COLOR_RED;
@@ -109,22 +109,22 @@ int inspect_wire(copper_wire_t* this_wire){
     const char *bottom_null_color = (bottom_neighbor) 
                                 ? ANSI_COLOR_GREEN : ANSI_COLOR_RED;
 
-    const char *north_face_color  = (north_neighbor_south_neighbor == this_wire) 
+    const char *north_face_color  = (north_neighbor_south_neighbor == this_element) 
                                 ? ANSI_COLOR_GREEN : ANSI_COLOR_RED;
 
-    const char *south_face_color  = (south_neighbor_north_neighbor == this_wire) 
+    const char *south_face_color  = (south_neighbor_north_neighbor == this_element) 
                                 ? ANSI_COLOR_GREEN : ANSI_COLOR_RED;
 
-    const char *east_face_color   = (east_neighbor_west_neighbor == this_wire) 
+    const char *east_face_color   = (east_neighbor_west_neighbor == this_element) 
                                 ? ANSI_COLOR_GREEN : ANSI_COLOR_RED;
 
-    const char *west_face_color   = (west_neighbor_east_neighbor == this_wire) 
+    const char *west_face_color   = (west_neighbor_east_neighbor == this_element) 
                                 ? ANSI_COLOR_GREEN : ANSI_COLOR_RED;
 
-    const char *top_face_color    = (top_neighbor_bottom_neighbor == this_wire) 
+    const char *top_face_color    = (top_neighbor_bottom_neighbor == this_element) 
                                 ? ANSI_COLOR_GREEN : ANSI_COLOR_RED;
 
-    const char *bottom_face_color = (bottom_neighbor_top_neighbor == this_wire) 
+    const char *bottom_face_color = (bottom_neighbor_top_neighbor == this_element) 
                                 ? ANSI_COLOR_GREEN : ANSI_COLOR_RED;
 
 

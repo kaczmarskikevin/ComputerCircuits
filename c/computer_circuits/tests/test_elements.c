@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-#include <elements/copper_wire.h>
+#include <elements/element.h>
 #include <elements/power.h>
 
 // Track test passes and failures globally
@@ -26,23 +26,23 @@ static int tests_failed = 0;
 // Connect all wires to all faces and try to connect the north wire to a face that doesn't exist.
 int test_copper_wire(void) {
 
-    copper_wire_t* main_wire = malloc(sizeof(copper_wire_t));
-    copper_wire_t* north_wire = malloc(sizeof(copper_wire_t));
-    copper_wire_t* south_wire = malloc(sizeof(copper_wire_t));
-    copper_wire_t* east_wire = malloc(sizeof(copper_wire_t));
-    copper_wire_t* west_wire = malloc(sizeof(copper_wire_t));
-    copper_wire_t* top_wire = malloc(sizeof(copper_wire_t));
-    copper_wire_t* bottom_wire = malloc(sizeof(copper_wire_t));
+    element_t* main_wire = malloc(sizeof(element_t));
+    element_t* north_wire = malloc(sizeof(element_t));
+    element_t* south_wire = malloc(sizeof(element_t));
+    element_t* east_wire = malloc(sizeof(element_t));
+    element_t* west_wire = malloc(sizeof(element_t));
+    element_t* top_wire = malloc(sizeof(element_t));
+    element_t* bottom_wire = malloc(sizeof(element_t));
 
     int result = 1;
 
     //Success Tests
-    result &= printf("STARTING Connecting north face  ... ") && connect_face(main_wire, north_wire,  COPPER_NORTH)   && printf("TRUE");printf(" ... ENDING Connecting north face\n\n");
-    result &= printf("STARTING Connecting south face  ... ") && connect_face(main_wire, south_wire,  COPPER_SOUTH)   && printf("TRUE");printf(" ... ENDING Connecting south face\n\n");
-    result &= printf("STARTING Connecting east face   ... ") && connect_face(main_wire, east_wire,  COPPER_EAST)     && printf("TRUE");printf(" ... ENDING Connecting east face\n\n");
-    result &= printf("STARTING Connecting west face   ... ") && connect_face(main_wire, west_wire,  COPPER_WEST)     && printf("TRUE");printf(" ... ENDING Connecting west face\n\n");
-    result &= printf("STARTING Connecting top face    ... ") && connect_face(main_wire, top_wire,  COPPER_TOP)       && printf("TRUE");printf(" ... ENDING Connecting top face\n\n");
-    //result &= printf("STARTING Connecting bottom face ... ") && connect_face(main_wire, bottom_wire,  COPPER_BOTTOM) && printf("TRUE");printf(" ... ENDING Connecting bottom face\n\n");
+    result &= printf("STARTING Connecting north face  ... ") && connect_face(main_wire, north_wire,  NORTH_FACE)   && printf("TRUE");printf(" ... ENDING Connecting north face\n\n");
+    result &= printf("STARTING Connecting south face  ... ") && connect_face(main_wire, south_wire,  SOUTH_FACE)   && printf("TRUE");printf(" ... ENDING Connecting south face\n\n");
+    result &= printf("STARTING Connecting east face   ... ") && connect_face(main_wire, east_wire,  EAST_FACE)     && printf("TRUE");printf(" ... ENDING Connecting east face\n\n");
+    result &= printf("STARTING Connecting west face   ... ") && connect_face(main_wire, west_wire,  WEST_FACE)     && printf("TRUE");printf(" ... ENDING Connecting west face\n\n");
+    result &= printf("STARTING Connecting top face    ... ") && connect_face(main_wire, top_wire,  TOP_FACE)       && printf("TRUE");printf(" ... ENDING Connecting top face\n\n");
+    result &= printf("STARTING Connecting bottom face ... ") && connect_face(main_wire, bottom_wire,  BOTTOM_FACE) && printf("TRUE");printf(" ... ENDING Connecting bottom face\n\n");
 
     //Failed connection
     result &= printf("Connecting bottom face ... ") && !connect_face(main_wire, bottom_wire,  99) && printf("TRUE");printf("\n");
